@@ -38,13 +38,13 @@ struct ConfigBagString
 
 class Mochila
 {
-private:
-    vector<Item> cromossomo;
 public:
-    int fitness;
+    vector<Item> cromossomo;
+    float fitness;
     Mochila(vector<Item> _cromossomo);
     Mochila crossover(Mochila m2);
     Item mutacao(vector<Item> _cromossomo);
+    void setFitness();
 };
 
 #endif // MOCHILA_H

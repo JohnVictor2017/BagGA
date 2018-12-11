@@ -1,5 +1,6 @@
 #include "mochila.h"
 #include "funcoes.h"
+#include <cmath>
 #include <algorithm>
 
 Mochila::Mochila(vector<Item> _cromossomo)
@@ -28,5 +29,17 @@ Item Mochila::mutacao(vector<Item> _cromossomo)
 {
     random_shuffle(_cromossomo.begin(), _cromossomo.end());
     return _cromossomo[0];
+}
+
+void Mochila::setFitness()
+{
+    int len = cromossomo.size();
+    float peso = 0;
+    int beneficio = 0;
+    for(int i = 0; i < len; ++i){
+        peso += cromossomo[i].peso;
+        beneficio += cromossomo[i].beneficio;
+    }
+    this->fitness = beneficio/peso;
 }
 
